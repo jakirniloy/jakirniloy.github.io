@@ -1,768 +1,779 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MD Jakir Hossain | PhD Aspirant in AI & Computer Vision</title>
-    
-    <!-- Bootstrap 5.3 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>MD Jakir Hossain | AI Researcher & Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-light: #eff6ff;
-            --secondary: #0f172a;
-            --accent: #f59e0b;
-            --success: #10b981;
-            --danger: #ef4444;
-            --info: #06b6d4;
-            --purple: #8b5cf6;
-            --rose: #e11d48;
-            --bg-body: #f8fafc;
-            --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
-            color: #1e293b;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        h1, h2, h3, h4, .section-title {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-        }
-
-        /* Sidebar Styling */
-        .sidebar {
-            background: linear-gradient(180deg, var(--secondary) 0%, #1e293b 100%);
-            color: white;
-            min-height: 100vh;
-            padding: 3rem 1.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 10px 0 30px rgba(0,0,0,0.1);
-        }
-
-        .profile-img-container {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 1.5rem;
-        }
-
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            border: 5px solid var(--primary);
-            box-shadow: 0 0 40px rgba(37, 99, 235, 0.3);
-            animation: morph 8s ease-in-out infinite;
-        }
-
-        @keyframes morph {
-            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-            50% { border-radius: 50% 50% 30% 70% / 50% 70% 30% 50%; }
-            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-        }
-
-        .scholar-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-        }
-        .section-title {
-            font-size: 1.75rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-         .section-title i {
-            width: 45px;
-            height: 45px;
-            background: white;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-        }
-        .content-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: var(--card-shadow);
-            transition: var(--transition);
-        }
-
-        .content-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
-        }
-        .stat-val { font-weight: 800; color: var(--accent); display: block; font-size: 1.25rem; }
-        .stat-label { font-size: 0.6rem; text-transform: uppercase; color: #94a3b8; letter-spacing: 1.5px; }
-
-        /* PhD Alert Badge - Top Floating */
-        .phd-alert {
-            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-            position: fixed;
-            top: 20px;
-            right: 30px;
-            z-index: 2000;
-            border: 2px solid rgba(255,255,255,0.2);
-            text-decoration: none;
-            animation: bounceIn 1s ease, pulseAlert 2s infinite;
-            transition: var(--transition);
-        }
-        .phd-alert:hover {
-            transform: translateY(-2px) scale(1.05);
-            color: white;
-            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
-        }
-        @keyframes bounceIn {
-            0% { transform: translateY(-50px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes pulseAlert {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
-
-        /* Custom Header Styling */
-        .mobile-header-custom {
-            background: linear-gradient(90deg, var(--secondary) 0%, #1e293b 100%);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        }
-
-        /* Main Content */
-        .main-content { padding: 4rem 4rem; max-width: 1400px; }
-
-        .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 2.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
-            color: var(--secondary);
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 60px;
-            width: 40px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-
-        .icon-box {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
-            background: white;
-            font-size: 1.4rem;
-        }
-
-        .content-card {
-            background: white;
-            border-radius: 28px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            border: 1px solid rgba(226, 232, 240, 0.7);
-            box-shadow: var(--card-shadow);
-            transition: var(--transition);
-        }
-        .content-card:hover { transform: translateY(-5px); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); }
-
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-            border-left: 3px solid var(--primary-light);
-        }
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.5rem;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: calc(-2rem - 10px);
-            top: 0;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--primary);
-            border: 4px solid white;
-            box-shadow: 0 0 0 4px var(--primary-light);
-        }
-
-        /* Skills Layout */
-        .skill-section {
-            background: #fff;
-            padding: 1.5rem;
-            border-radius: 20px;
-            border: 1px solid #f1f5f9;
-            height: 100%;
-        }
-        .skill-tag {
-            background: #f8fafc;
-            color: #475569;
-            padding: 8px 16px;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin: 0.35rem;
-            display: inline-block;
-            border: 1px solid #e2e8f0;
-            transition: var(--transition);
-        }
-        .skill-tag:hover {
-            background: white;
-            color: var(--primary);
-            border-color: var(--primary);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1);
-        }
-
-        /* Mobile-Friendly Publications */
-        .pub-list { display: flex; flex-direction: column; gap: 1.25rem; }
-        .pub-card {
-            background: white;
-            border-radius: 20px;
-            border: 1px solid #e2e8f0;
-            padding: 1.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            transition: var(--transition);
-            text-decoration: none;
-            color: inherit;
-        }
-        .pub-card:hover {
-            border-color: var(--primary);
-            transform: translateX(10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
-        .pub-cite-box {
-            background: var(--primary-light);
-            color: var(--primary);
-            min-width: 65px;
-            height: 65px;
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        .pub-cite-count { font-weight: 800; font-size: 1.2rem; line-height: 1; }
-        .pub-cite-label { font-size: 0.6rem; text-transform: uppercase; font-weight: 700; opacity: 0.8; }
-        .pub-main { flex-grow: 1; }
-        .pub-title { font-weight: 700; font-size: 1.05rem; display: block; margin-bottom: 6px; color: var(--secondary); line-height: 1.4; }
-        .pub-authors { font-size: 0.85rem; color: #64748b; font-style: italic; }
-        .pub-year-badge {
-            background: #f1f5f9;
-            color: #475569;
-            padding: 4px 12px;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        /* Project Cards */
-        .project-item {
-            border-radius: 20px;
-            background: #fafafa;
-            padding: 2rem;
-            height: 100%;
-            border: 1px solid #f1f5f9;
-            transition: var(--transition);
-        }
-        .project-item:hover { background: white; border-color: var(--info); transform: translateY(-3px); box-shadow: var(--card-shadow); }
-
-        /* Footer */
-        footer {
-            margin-top: 6rem;
-            padding: 4rem 1rem;
-            text-align: center;
-            background: white;
-            border-top: 1px solid #e2e8f0;
-            border-radius: 50px 50px 0 0;
-        }
-        .footer-sig { font-size: 1.75rem; font-weight: 900; color: var(--secondary); letter-spacing: -1px; margin-bottom: 0.5rem; }
-
-        @media (max-width: 991.98px) {
-            .sidebar { display: none; }
-            .mobile-header { display: flex; }
-            .main-content { padding: 3rem 1.5rem; }
-            .pub-card { flex-direction: column; gap: 1rem; }
-            .pub-cite-box { width: 100%; flex-direction: row; gap: 10px; height: 45px; }
-            .phd-alert { 
-                top: auto;
-                bottom: 20px;
-                right: 20px;
-                left: 20px;
-                width: auto;
-                justify-content: center;
-                font-size: 0.8rem;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#1e293b',
+                        accent: '#06b6d4',
+                        accentHover: '#0891b2',
+                    }
+                }
             }
         }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-        [data-aos] { opacity: 0; transform: translateY(20px); transition: all 0.7s ease-out; }
-        [data-aos].aos-animate { opacity: 1; transform: translateY(0); }
+        .gradient-text {
+            background: linear-gradient(to right, #06b6d4, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, -20px) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #06b6d4;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .metric-card {
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            transition: all 0.3s ease;
+        }
+        .metric-card:hover {
+            background: rgba(6, 182, 212, 0.2);
+            transform: translateY(-2px);
+        }
     </style>
-<link rel="stylesheet" href="/index.css">
 </head>
-<body>
+<body class="antialiased">
 
-    <!-- PhD Seeking Notification - Floating Top Right -->
-    <a href="mailto:mdjakirhossen13@gmail.com?subject=PhD Opportunity" class="phd-alert">
-        <i class="fas fa-graduation-cap"></i>
-        <span>Actively seeking PhD opportunities in Computer Vision — Contact </span>
-    </a>
-
-    <!-- Mobile Header -->
-    <nav class="mobile-header d-lg-none mobile-header-custom text-white p-3 d-flex justify-content-between align-items-center sticky-top shadow">
-        <div class="d-flex align-items-center gap-2">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMJdz82POVvnzzYwI_Mmk7zjhZRSzveMERySNNmaswOHfn9nC2mDlMGMiz2FY9m598vEnb4uybERwvmuyOHKfyGVUCn2tMsMV4udGXgqaBvYl-ZfxQ0gd2mIm4qpuHuB4uJGlPUExE-ngMelA51-asTe0TdCGOZMtAg1YY-TVA5KOjtS9pymjPuYEb2fo/s800/1685212691293.jpeg" style="width: 40px; height: 40px; border-radius: 50%;" alt="Jakir">
-            <span class="fw-bold">Jakir Hossain</span>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card border-b-0 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 font-display font-bold text-2xl tracking-tighter text-white">
+                    JAKIR<span class="text-accent">.NILOY</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#about" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="#experience" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Experience</a>
+                        <a href="#education" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Education</a>
+                        <a href="#thesis" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Thesis</a>
+                        <a href="#publications" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Publications</a>
+                        <a href="#contact" class="bg-accent hover:bg-accentHover text-white px-5 py-2 rounded-full text-sm font-medium transition-all transform hover:scale-105">Contact Me</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <button class="btn btn-primary btn-sm rounded-pill px-3" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas">
-            <i class="fas fa-bars"></i> Menu
-        </button>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden glass-card border-t border-gray-700" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#experience" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Experience</a>
+                <a href="#education" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Education</a>
+                <a href="#thesis" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Thesis</a>
+                <a href="#publications" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Publications</a>
+            </div>
+        </div>
     </nav>
 
-    <!-- Offcanvas Mobile Sidebar -->
-    <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="sidebarOffcanvas">
-        <div class="offcanvas-header border-bottom border-secondary">
-            <h5 class="offcanvas-title">Jakir's Portfolio</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
-        </div>
-        <div class="offcanvas-body">
-            <nav class="nav flex-column gap-3">
-                <a href="#about" class="nav-link text-white" data-bs-dismiss="offcanvas"><i class="fas fa-id-card me-2"></i>Profile</a>
-                <a href="#experience" class="nav-link text-white" data-bs-dismiss="offcanvas"><i class="fas fa-briefcase me-2"></i>Experience</a>
-                <a href="#research" class="nav-link text-white" data-bs-dismiss="offcanvas"><i class="fas fa-scroll me-2"></i>Publications</a>
-                <a href="#projects" class="nav-link text-white" data-bs-dismiss="offcanvas"><i class="fas fa-flask me-2"></i>Research & Projects</a>
-                <a href="#skills" class="nav-link text-white" data-bs-dismiss="offcanvas"><i class="fas fa-tools me-2"></i>Skills</a>
-                <a href="#awards" class="nav-link text-white" data-bs-dismiss="offcanvas"><i class="fas fa-award me-2"></i>Awards</a>
-                <a href="#education" class="nav-link text-white" data-bs-dismiss="offcanvas"><i class="fas fa-university me-2"></i>Education</a>
-            </nav>
-        </div>
-    </div>
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="blob bg-blue-600 w-96 h-96 rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="blob bg-cyan-500 w-80 h-80 rounded-full bottom-0 right-0 translate-x-1/3 translate-y-1/3 animation-delay-2000"></div>
 
-    <div class="container-fluid p-0">
-        <div class="row g-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8 animate-fade-in-up">
+                <div class="inline-block px-4 py-1 rounded-full bg-slate-800 border border-slate-700 text-accent text-sm font-semibold tracking-wide mb-4">
+                    <i class="fas fa-code mr-2"></i> AI Researcher & Engineer
+                </div>
+                <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight">
+                    MD Jakir <br>
+                    <span class="gradient-text">Hossain</span>
+                </h1>
+                <p class="text-xl text-gray-400 max-w-lg leading-relaxed">
+                    Master's in Computer Science specializing in Deep Learning, Medical Image Analysis, and NLP. Building intelligent systems for real-world impact.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 mt-4">
+                    <a href="#publications" class="px-8 py-4 bg-accent hover:bg-accentHover text-white rounded-lg font-semibold transition-all transform hover:-translate-y-1 shadow-lg shadow-cyan-500/30">
+                        View Research
+                    </a>
+                    <a href="https://jakirniloy.github.io/" target="_blank" class="px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white rounded-lg font-semibold transition-all flex items-center gap-2">
+                        <i class="fas fa-globe"></i> Portfolio
+                    </a>
+                </div>
+                
+                <div class="flex gap-6 pt-4 text-gray-400">
+                    <a href="https://github.com/jakirniloy" target="_blank" class="hover:text-white transition-colors text-2xl"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/jakirniloy" target="_blank" class="hover:text-white transition-colors text-2xl"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://scholar.google.com/citations?hl=en&user=YOUR_SCHOLAR_ID" target="_blank" class="hover:text-white transition-colors text-2xl"><i class="fas fa-graduation-cap"></i></a>
+                </div>
+            </div>
             
-            <!-- Sidebar Desktop -->
-            <aside class="col-lg-3 sidebar d-none d-lg-block">
-                <div class="text-center">
-                    <div class="profile-img-container">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMJdz82POVvnzzYwI_Mmk7zjhZRSzveMERySNNmaswOHfn9nC2mDlMGMiz2FY9m598vEnb4uybERwvmuyOHKfyGVUCn2tMsMV4udGXgqaBvYl-ZfxQ0gd2mIm4qpuHuB4uJGlPUExE-ngMelA51-asTe0TdCGOZMtAg1YY-TVA5KOjtS9pymjPuYEb2fo/s800/1685212691293.jpeg" alt="Jakir Niloy" class="profile-img">
+            <div class="relative hidden md:block">
+                <div class="relative w-full aspect-square max-w-md mx-auto">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-full opacity-20 blur-2xl animate-pulse"></div>
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpaa-BSY544HKUk6TcE4Qfux77FO_Irzk2so-uBfWkKoXYa3TlVKbrFbWpwGdlvbSMJHSMMSgPL4mCN8jx5hyphenhyphenCK06kVrGz5VZubwAd_945ztnDHrtWpUotTj5QqGlU_UDUmi7bO2kRFW85QQsKs-uw2wFlzfOKgv47PQE7LhrSXGryMTAo-RbyPaKvRKI/s320/WhatsApp%20Image%202026-02-25%20at%204.05.30%20PM.jpeg"  alt="Profile" class="relative rounded-2xl shadow-2xl border-4 border-slate-800 object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500">
+                    
+                    <div class="absolute -bottom-6 -left-6 glass-card p-4 rounded-xl shadow-xl animate-bounce" style="animation-duration: 3s;">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-green-500/20 p-2 rounded-lg text-green-400">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400">Status</p>
+                                <p class="font-bold text-white">Actively Seeking PhD Opportunities in Computer Vison</p>
+                            </div>
+                        </div>
                     </div>
-                    <h2 class="h4 mb-1">MD Jakir Hossain</h2>
-                    <p class="text-accent fw-600 mb-0" id="typewriter"></p>
-                    <p class="text-primary small mb-1" style="color: red;">
-  <i class="fas fa-location-dot me-1"></i> Dhaka, Bangladesh
-</p>
+
+                    <div class="absolute -top-6 -right-6 glass-card p-4 rounded-xl shadow-xl animate-bounce" style="animation-duration: 4s;">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-blue-500/20 p-2 rounded-lg text-blue-400">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400">Publications</p>
+                                <p class="font-bold text-white">17+ Papers</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Google Scholar Stats -->
-                <div class="scholar-card" data-aos="zoom-in">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="small fw-bold text-uppercase text-primary ls-2">Google Scholar</span>
-                        <a href="https://scholar.google.com/citations?user=5zQswZIAAAAJ" target="_blank" class="text-info"><i class="fas fa-external-link-alt"></i></a>
+                <!-- Google Scholar Metrics - Under Picture -->
+                <div class="mt-8 flex justify-center gap-4">
+                    <a href="https://scholar.google.com/citations?hl=en&user=YOUR_SCHOLAR_ID" target="_blank" class="metric-card px-6 py-4 rounded-xl flex items-center gap-3 group hover:scale-105 transition-transform">
+                        <div class="bg-accent/20 p-2 rounded-lg text-accent group-hover:bg-accent group-hover:text-white transition-all">
+                            <i class="fas fa-graduation-cap text-xl"></i>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-2xl font-bold text-white leading-none">60</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">Citations</p>
+                        </div>
+                         <div class="text-center">
+                            <p class="text-2xl font-bold text-white leading-none">04</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">h-index</p>
+                        </div>
+                         <div class="text-center">
+                            <p class="text-2xl font-bold text-white leading-none">03</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">i10-index</p>
+                        </div>
+                    </a>
+                    
+                    <div class="metric-card px-6 py-4 rounded-xl flex items-center gap-3">
+                        <div class="bg-accent/20 p-2 rounded-lg text-accent">
+                            <i class="fas fa-chart-line text-xl"></i>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-2xl font-bold text-white leading-none">4</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">h-index</p>
+                        </div>
                     </div>
-                    <div class="row g-0 text-center">
-                        <div class="col-4 border-end border-secondary-subtle">
-                            <span class="stat-val">59</span><span class="stat-label">Citations</span>
+                    
+                    <div class="metric-card px-6 py-4 rounded-xl flex items-center gap-3">
+                        <div class="bg-accent/20 p-2 rounded-lg text-accent">
+                            <i class="fas fa-file-alt text-xl"></i>
                         </div>
-                        <div class="col-4 border-end border-secondary-subtle">
-                            <span class="stat-val">4</span><span class="stat-label">h-index</span>
-                        </div>
-                        <div class="col-4">
-                            <span class="stat-val">3</span><span class="stat-label">i10-index</span>
+                        <div class="text-center">
+                            <p class="text-2xl font-bold text-white leading-none">3</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">i10-index</p>
                         </div>
                     </div>
                 </div>
-
-                <div class="mt-4 px-3">
-                    <h6 class="text-uppercase text-muted fw-bold mb-3 ls-1" style="font-size: 0.65rem;">Navigation</h6>
-                    <nav class="nav flex-column gap-2 sidebar-nav">
-                        <a href="#about" class="nav-link text-white-50 p-0 hover-accent small mb-2"><i class="fas fa-id-card-clip me-2 text-primary"></i> Professional Identity</a>
-                        <a href="#experience" class="nav-link text-white-50 p-0 hover-accent small mb-2"><i class="fas fa-briefcase me-2 text-success"></i> Experience</a>
-                        <a href="#research" class="nav-link text-white-50 p-0 hover-accent small mb-2"><i class="fas fa-scroll me-2 text-rose"></i> Publications</a>
-                        <a href="#projects" class="nav-link text-white-50 p-0 hover-accent small mb-2"><i class="fas fa-flask me-2 text-warning"></i> Research & Projects</a>
-                        <a href="#skills" class="nav-link text-white-50 p-0 hover-accent small mb-2"><i class="fas fa-terminal me-2 text-info"></i> Technical Skills</a>
-                        <a href="#education" class="nav-link text-white-50 p-0 hover-accent small mb-2"><i class="fas fa-graduation-cap me-2 text-primary"></i> Education</a>
-                    </nav>
-                </div>
-
-                <div class="mt-5 px-3">
-                    <h6 class="text-uppercase text-muted fw-bold mb-3 ls-1" style="font-size: 0.65rem;">Contact Me</h6>
-                    <a href="mailto:mdjakirhossen13@gmail.com" class="text-white-50 text-decoration-none small d-flex align-items-center gap-2 mb-2"><i class="fas fa-envelope text-primary"></i> Email</a>
-                    <a href="https://linkedin.com/in/jakirniloy" target="_blank" class="text-white-50 text-decoration-none small d-flex align-items-center gap-2 mb-2"><i class="fab fa-linkedin text-primary"></i> LinkedIn</a>
-                    <a href="https://github.com/jakirniloy" target="_blank" class="text-white-50 text-decoration-none small d-flex align-items-center gap-2"><i class="fab fa-github text-primary"></i> GitHub</a>
-                </div>
-            </aside>
-
-            <!-- Main Content Area -->
-            <main class="col-lg-9 main-content">
-                
-                <!-- Enhanced Profile Section -->
-                <section id="about" class="mb-5" data-aos="fade-up">
-                    <h2 class="section-title"><i><i class="fas fa-id-card-clip"></i></i> Professional Identity</h2>
-                    <div class="content-card">
-                        <div class="row g-4">
-                            <div class="col-md-8">
-                                <h4 class="h5 fw-bold text-primary mb-3">About Me</h4>
-                                <p class="lead mb-0" style="font-size: 1.05rem; line-height: 1.7; color: var(--text-main);">
-                                    An MS in Computer Science with a core specialization in <strong>Deep Learning and Computer Vision</strong>. 
-                                    I bridge the gap between academic research and engineering solutions, focusing on medical image diagnostics and NLP. 
-                                    My goal is to pursue a <strong>PhD</strong> to pioneer ethical, interpretable AI systems for a better future.
-                                </p>
-                            </div>
-                            <div class="col-md-4 border-start d-none d-md-block">
-                                <h4 class="h5 fw-bold text-primary mb-3">Core Focus</h4>
-                                <ul class="list-unstyled small text-muted">
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> AI Interpretability</li>
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Medical Computer Vision</li>
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Low-resource NLP</li>
-                                    <li><i class="fas fa-check-circle text-success me-2"></i> Predictive Analytics</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-
-                <!-- Experience Section -->
-                <section id="experience" class="mb-5" data-aos="fade-up">
-                    <h2 class="section-title">
-                        <span class="icon-box text-success shadow-sm"><i class="fas fa-briefcase"></i></span>
-                        Professional Experience
-                    </h2>
-                    <div class="content-card">
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="d-flex justify-content-between flex-wrap gap-2 mb-1">
-                                    <h5 class="fw-bold mb-0 text-secondary">Junior AI Engineer</h5>
-                                    <span class="badge bg-primary-light text-primary rounded-pill px-3 py-2">July 2023 – June 2025</span>
-                                </div>
-                                <p class="text-primary fw-600 small mb-2">Algoramming, Dhaka, Bangladesh (Remote)</p>
-                                <p class="text-muted small">Contributed to the development and deployment of AI solutions, built ML pipelines, trained and optimized models, and collaborated with cross-functional teams to integrate models into production.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="d-flex justify-content-between flex-wrap gap-2 mb-1">
-                                    <h5 class="fw-bold mb-0 text-secondary">Graduate Teaching Assistant</h5>
-                                    <span class="badge bg-success-subtle text-success rounded-pill px-3 py-2">June 4, 2023 – July 2025</span>
-                                </div>
-                                <p class="text-success fw-600 small mb-2">Department of Mathematics, Physics, and Statistics — East West University</p>
-                                <p class="text-muted small">Assisting faculty with tutorials, grading, mentoring students, and supporting course material and assessment development.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="d-flex justify-content-between flex-wrap gap-2 mb-1">
-                                    <h5 class="fw-bold mb-0 text-secondary">Research Assistant</h5>
-                                    <span class="badge bg-warning-subtle text-warning-emphasis rounded-pill px-3 py-2">February 2024 – February 2025</span>
-                                </div>
-                                <p class="text-warning-emphasis fw-600 small mb-2">East West University (Supervisor: Professor Dr. Ahmed Wasif Reza)</p>
-                                <p class="text-muted small">Supporting research projects in machine learning and data analysis and contributing to publications and model development.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Research & Projects Section -->
-                <section id="projects" class="mb-5" data-aos="fade-up">
-                    <h2 class="section-title">
-                        <span class="icon-box text-warning shadow-sm"><i class="fas fa-flask"></i></span>
-                        Research & Projects
-                    </h2>
-                    <div class="row g-4">
-                        <div class="col-md-12">
-                            <div class="project-item">
-                                <div class="d-flex align-items-center gap-3 mb-3">
-                                    <span class="icon-box text-info bg-info-subtle shadow-none"><i class="fas fa-microscope"></i></span>
-                                    <h5 class="fw-bold mb-0 text-secondary">Master’s Thesis</h5>
-                                </div>
-                                <h6 class="fw-bold text-primary mb-2">Diabetic Retinopathy Detection using Attention-Enhanced Transfer Learning and Explainable AI Techniques</h6>
-                                <p class="text-muted small"><strong>Supervisor:</strong> Dr. Mohammad Rifat Ahmmad Rashid (EWU). Proposed an automated system for diabetic retinopathy detection using attention-enhanced transfer learning and Grad-CAM based explainability to enhance clinical interpretability and generalization across datasets.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="project-item">
-                                <div class="d-flex align-items-center gap-3 mb-3">
-                                    <span class="icon-box text-rose bg-danger-subtle shadow-none"><i class="fas fa-book"></i></span>
-                                    <h5 class="fw-bold mb-0 text-secondary">Capstone Project</h5>
-                                </div>
-                                <h6 class="fw-bold text-rose mb-2">Developing a Bangla Handwritten Text Recognition Framework using Deep Learning (2022–2023)</h6>
-                                <p class="text-muted small"><strong>Supervisor:</strong> Dr. Mohammad Rezwanul Huq. Developed and optimized deep neural networks to convert handwritten Bangla text into a digital format with improved recognition accuracy.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Publications Section -->
-                <section id="research" class="mb-5" data-aos="fade-up">
-                    <h2 class="section-title">
-                        <span class="icon-box text-rose shadow-sm"><i class="fas fa-scroll"></i></span>
-                        Peer-Reviewed Publications
-                    </h2>
-                    <div class="pub-list">
-                        <!-- Pub 1 -->
-                        <a href="https://scholar.google.com/citations?user=5zQswZIAAAAJ" target="_blank" class="pub-card shadow-sm">
-                            <div class="pub-cite-box">
-                                <span class="pub-cite-count">14</span>
-                                <span class="pub-cite-label">Citations</span>
-                            </div>
-                            <div class="pub-main">
-                                <span class="pub-title">Developing a Bangla Handwritten Text Recognition Framework using Deep Learning</span>
-                                <span class="pub-authors">MJ Hossain, SS Zaman, FR Akash, MR Sarker, MR Huq. 26th ICCIT.</span>
-                                <div><span class="pub-year-badge">2023</span></div>
-                            </div>
-                        </a>
-                        <!-- Pub 2 -->
-                        <a href="https://scholar.google.com/citations?user=5zQswZIAAAAJ" target="_blank" class="pub-card shadow-sm">
-                            <div class="pub-cite-box">
-                                <span class="pub-cite-count">13</span>
-                                <span class="pub-cite-label">Citations</span>
-                            </div>
-                            <div class="pub-main">
-                                <span class="pub-title">Detecting crop pests and diseases through deep learning techniques for improved yields</span>
-                                <span class="pub-authors">MT Chowdhury, MJ Hossain, OR Adnan, MI Sumon, MS Hossain. CIIR.</span>
-                                <div><span class="pub-year-badge">2023</span></div>
-                            </div>
-                        </a>
-                        <!-- Pub 3 -->
-                        <a href="https://scholar.google.com/citations?user=5zQswZIAAAAJ" target="_blank" class="pub-card shadow-sm">
-                            <div class="pub-cite-box">
-                                <span class="pub-cite-count">12</span>
-                                <span class="pub-cite-label">Citations</span>
-                            </div>
-                            <div class="pub-main">
-                                <span class="pub-title">Deciphering handwritten text: a CNN framework for handwritten character recognition</span>
-                                <span class="pub-authors">MJ Hossain, SS Zaman, FR Akash, F Alam, AW Reza, MS Arefin. ICO.</span>
-                                <div><span class="pub-year-badge">2023</span></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="text-center mt-4">
-                        <a href="https://scholar.google.com/citations?user=5zQswZIAAAAJ" target="_blank" class="btn btn-dark rounded-pill px-5 py-3 shadow-lg fw-bold">
-                            <i class="fas fa-external-link-alt me-2"></i> View All on Google Scholar
-                        </a>
-                    </div>
-                </section>
-
-                <!-- Technical Skills Section -->
-                <section id="skills" class="mb-5" data-aos="fade-up">
-                    <h2 class="section-title">
-                        <span class="icon-box text-info shadow-sm"><i class="fas fa-terminal"></i></span>
-                        Technical Skills
-                    </h2>
-                    <div class="row g-4">
-                        <div class="col-md-4">
-                            <div class="skill-section shadow-sm">
-                                <h6 class="fw-bold text-primary mb-3"><i class="fas fa-brain me-2"></i>AI & Data Science</h6>
-                                <div class="d-flex flex-wrap">
-                                    <span class="skill-tag">Machine Learning</span><span class="skill-tag">Deep Learning</span>
-                                    <span class="skill-tag">Computer Vision</span><span class="skill-tag">NLP</span>
-                                    <span class="skill-tag">Explainable AI (XAI)</span><span class="skill-tag">TensorFlow</span>
-                                    <span class="skill-tag">PyTorch</span><span class="skill-tag">Scikit-learn</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="skill-section shadow-sm">
-                                <h6 class="fw-bold text-success mb-3"><i class="fas fa-database me-2"></i>Data & Tools</h6>
-                                <div class="d-flex flex-wrap">
-                                    <span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span>
-                                    <span class="skill-tag">SciPy</span><span class="skill-tag">PySpark</span>
-                                    <span class="skill-tag">OpenCV</span><span class="skill-tag">scikit-image</span>
-                                    <span class="skill-tag">Git</span><span class="skill-tag">Latex</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="skill-section shadow-sm">
-                                <h6 class="fw-bold text-rose mb-3"><i class="fas fa-laptop-code me-2"></i>Dev & Databases</h6>
-                                <div class="d-flex flex-wrap">
-                                    <span class="skill-tag">Python</span><span class="skill-tag">Java</span>
-                                    <span class="skill-tag">C/C++</span><span class="skill-tag">PHP</span>
-                                    <span class="skill-tag">Dart</span><span class="skill-tag">SQL</span>
-                                    <span class="skill-tag">Django</span><span class="skill-tag">Flask</span>
-                                    <span class="skill-tag">Firebase</span><span class="skill-tag">MySQL</span>
-                                    <span class="skill-tag">SQLite</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- Academic Affiliations Section -->
-                <!-- <section id="affiliations" class="mb-5" data-aos="fade-up">
-                    <h2 class="section-title"><i><i class="fas fa-users"></i></i> Academic Affiliations</h2>
-                    <div class="content-card">
-                        <div class="d-flex flex-wrap">
-                            <span class="affiliation-tag"><i class="fas fa-flask text-primary"></i> Vice-President, EWU Computer Programming Club (EWUCoPC)</span>
-                            <span class="affiliation-tag"><i class="fas fa-robot text-primary"></i> EWU Robotics Club (Alumni)</span>
-                            <span class="affiliation-tag"><i class="fas fa-earth-americas text-primary"></i> SGM, East West University Sports Club</span>
-                        </div>
-                    </div>
-                </section> -->
-                <!-- Academic Affiliations Section-->
-                <section id="awards" class="mb-5" data-aos="fade-up">
-                    <h2 class="section-title">
-                        <span class="icon-box text-accent shadow-sm"><i class="fas fa-users"></i></span>
-                        Academic Affiliations
-                    </h2>
-                    <div class="content-card bg-light border-0">
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="p-4 bg-white rounded-4 border-start border-4 border-warning shadow-sm h-100">
-                                    <h6 class="fw-bold mb-1">Vice-President, EWU Computer Programming Club (EWUCoPC)</h6>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="p-4 bg-white rounded-4 border-start border-4 border-primary shadow-sm h-100">
-                                    <h6 class="fw-bold mb-1">SGM, East West University Sports Club</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Awards Section -->
-                <section id="awards" class="mb-5" data-aos="fade-up">
-                    <h2 class="section-title">
-                        <span class="icon-box text-accent shadow-sm"><i class="fas fa-award"></i></span>
-                        Awards & Honors
-                    </h2>
-                    <div class="content-card bg-light border-0">
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="p-4 bg-white rounded-4 border-start border-4 border-warning shadow-sm h-100">
-                                    <h6 class="fw-bold mb-1">EWU Medha Lalon Scholarship</h6>
-                                    <p class="small text-muted mb-0">Consistently featured for maintaining an outstanding CGPA above 3.50 in undergraduate studies.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="p-4 bg-white rounded-4 border-start border-4 border-primary shadow-sm h-100">
-                                    <h6 class="fw-bold mb-1">Dean's List Award</h6>
-                                    <p class="small text-muted mb-0">Consistently featured for maintaining an outstanding CGPA above 3.75 in Ms.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Education Section -->
-                <section id="education" class="mb-5" data-aos="fade-up">
-                    <h2 class="section-title">
-                        <span class="icon-box text-primary shadow-sm"><i class="fas fa-graduation-cap"></i></span>
-                        Academic History
-                    </h2>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="content-card h-100 border-top border-4 border-primary bg-white shadow-sm">
-                                <span class="badge bg-primary-light text-primary mb-3 px-3 py-2 rounded-pill">MS Graduate</span>
-                                <h5 class="fw-bold">MS in Computer Science</h5>
-                                <p class="text-primary fw-bold mb-1">East West University</p>
-                                <p class="mb-0 text-muted small"><strong>GPA: 3.75</strong> / 4.0</p>
-                                <p class="x-small text-muted mt-2">Core: Data Science & AI</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="content-card h-100 border-top border-4 border-secondary bg-white shadow-sm">
-                                <span class="badge bg-light text-secondary mb-3 px-3 py-2 rounded-pill">B.Sc. Graduate</span>
-                                <h5 class="fw-bold">B.Sc. in Computer Science</h5>
-                                <p class="text-primary fw-bold mb-1">East West University</p>
-                                <p class="mb-0 text-muted small"><strong>GPA: 3.53</strong> / 4.0</p>
-                                <p class="x-small text-muted mt-2">Major: Intelligent Systems</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Footer -->
-                <footer>
-                    <div class="footer-sig">Jakir Hossain Niloy</div>
-                    <p class="mb-4 text-muted">Designed<span class="text-danger"></span> by <strong>Jakir Niloy</strong> | &copy; 2026</p>
-                    <div class="d-flex justify-content-center gap-3">
-                        <a href="https://linkedin.com/in/jakirniloy" target="_blank" class="btn btn-outline-secondary btn-sm rounded-circle shadow-sm" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/jakirniloy" target="_blank" class="btn btn-outline-secondary btn-sm rounded-circle shadow-sm" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-github"></i></a>
-                        <a href="mailto:mdjakirhossen13@gmail.com" class="btn btn-outline-secondary btn-sm rounded-circle shadow-sm" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </footer>
-
-            </main>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- About & Skills Section -->
+    <section id="about" class="py-24 bg-slate-900/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="md:col-span-2 space-y-6">
+                    <h2 class="text-3xl font-display font-bold text-white mb-6 border-l-4 border-accent pl-4">About Me</h2>
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        I am a passionate Computer Science researcher and engineer with a Master's degree from East West University. My work focuses on leveraging <span class="text-accent font-semibold">Machine Learning</span> and <span class="text-accent font-semibold">Deep Learning</span> to solve complex problems in medical imaging and natural language processing.
+                    </p>
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        Currently, I serve as a Graduate Teaching Assistant while working as a Junior AI Engineer at Algoramming. My research spans medical image analysis, sentiment analysis, deceptive review detection, and NLP for low-resource languages.
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-display font-bold text-white">Technical Skills</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-300">Python / TensorFlow / PyTorch</span>
+                                <span class="text-sm font-medium text-accent">95%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-300">Computer Vision (OpenCV)</span>
+                                <span class="text-sm font-medium text-accent">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-300">Data Science (Pandas, NumPy)</span>
+                                <span class="text-sm font-medium text-accent">92%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 mt-6">
+                        <span class="px-3 py-1 bg-slate-800 text-xs text-cyan-400 rounded-full border border-slate-700">Scikit-learn</span>
+                        <span class="px-3 py-1 bg-slate-800 text-xs text-cyan-400 rounded-full border border-slate-700">Keras</span>
+                        <span class="px-3 py-1 bg-slate-800 text-xs text-cyan-400 rounded-full border border-slate-700">PySpark</span>
+                        <span class="px-3 py-1 bg-slate-800 text-xs text-cyan-400 rounded-full border border-slate-700">Git</span>
+                        <span class="px-3 py-1 bg-slate-800 text-xs text-cyan-400 rounded-full border border-slate-700">Django</span>
+                        <span class="px-3 py-1 bg-slate-800 text-xs text-cyan-400 rounded-full border border-slate-700">Flask</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-3xl font-display font-bold text-white mb-16 text-center border-l-4 border-accent pl-4 inline-block">Work Experience</h2>
+            
+            <div class="space-y-8">
+                <!-- Job 1 -->
+                <div class="glass-card p-8 rounded-xl border-l-4 border-accent hover:transform hover:-translate-y-1 transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Graduate Teaching Assistant</h3>
+                            <p class="text-accent font-semibold mt-1">East West University, Dhaka, Bangladesh</p>
+                        </div>
+                        <span class="inline-block mt-2 md:mt-0 px-4 py-1 bg-slate-800 text-cyan-400 text-sm rounded-full border border-slate-700">June 2023 - Present</span>
+                    </div>
+                    <ul class="space-y-2 text-gray-400 list-disc list-inside">
+                        <li>Assisting faculty in teaching undergraduate courses by conducting tutorials, grading assignments, and mentoring students</li>
+                        <li>Supporting students in understanding mathematical and statistical concepts through discussions and problem-solving</li>
+                        <li>Helping with course material preparation and assessment</li>
+                    </ul>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="glass-card p-8 rounded-xl border-l-4 border-blue-500 hover:transform hover:-translate-y-1 transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Junior AI Engineer</h3>
+                            <p class="text-blue-400 font-semibold mt-1">Algoramming, Dhaka, Bangladesh (Remote)</p>
+                        </div>
+                        <span class="inline-block mt-2 md:mt-0 px-4 py-1 bg-slate-800 text-blue-400 text-sm rounded-full border border-slate-700">July 2023 - June 2025</span>
+                    </div>
+                    <ul class="space-y-2 text-gray-400 list-disc list-inside">
+                        <li>Contributed to the development and deployment of AI solutions, including model design, training, and optimization</li>
+                        <li>Built and maintained machine learning pipelines for various projects, ensuring performance and scalability</li>
+                        <li>Participated in research and implementation of deep learning algorithms for real-world use cases</li>
+                        <li>Collaborated with cross-functional teams to integrate AI models into production-ready systems</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-24 bg-slate-900/50 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-3xl font-display font-bold text-white mb-16 text-center border-l-4 border-purple-500 pl-4 inline-block">Education</h2>
+            
+            <div class="space-y-8">
+                <!-- MS -->
+                <div class="glass-card p-8 rounded-xl border-l-4 border-purple-500 hover:transform hover:-translate-y-1 transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Master of Science in Computer Science and Engineering</h3>
+                            <p class="text-purple-400 font-semibold mt-1">East West University (EWU), Dhaka, Bangladesh</p>
+                        </div>
+                        <span class="inline-block mt-2 md:mt-0 px-4 py-1 bg-slate-800 text-purple-400 text-sm rounded-full border border-slate-700">Jan 2024 - Feb 2025</span>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4 mt-4">
+                        <div class="bg-slate-800/50 p-4 rounded-lg">
+                            <p class="text-sm text-gray-400">Major</p>
+                            <p class="text-white font-semibold">Data Science</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-4 rounded-lg">
+                            <p class="text-sm text-gray-400">GPA</p>
+                            <p class="text-white font-semibold">3.75 / 4.0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BSc -->
+                <div class="glass-card p-8 rounded-xl border-l-4 border-pink-500 hover:transform hover:-translate-y-1 transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Bachelor of Science in Computer Science and Engineering</h3>
+                            <p class="text-pink-400 font-semibold mt-1">East West University (EWU), Dhaka, Bangladesh</p>
+                        </div>
+                        <span class="inline-block mt-2 md:mt-0 px-4 py-1 bg-slate-800 text-pink-400 text-sm rounded-full border border-slate-700">Jan 2019 - May 2023</span>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4 mt-4">
+                        <div class="bg-slate-800/50 p-4 rounded-lg">
+                            <p class="text-sm text-gray-400">Major</p>
+                            <p class="text-white font-semibold">Intelligence System and Data Science</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-4 rounded-lg">
+                            <p class="text-sm text-gray-400">GPA</p>
+                            <p class="text-white font-semibold">3.53 / 4.0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thesis Section -->
+    <section id="thesis" class="py-24 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-3xl font-display font-bold text-white mb-16 text-center">Thesis & Capstone Projects</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- MS Thesis -->
+                <div class="glass-card p-8 rounded-2xl border border-slate-700 hover:border-accent transition-all duration-300 group">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="px-3 py-1 bg-accent/20 text-accent text-sm font-semibold rounded-full border border-accent/30">Master's Thesis</span>
+                        <i class="fas fa-brain text-3xl text-slate-600 group-hover:text-accent transition-colors"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-white mb-4 leading-tight">
+                        Diabetic Retinopathy Detection using Attention-Enhanced Transfer Learning and Explainable AI Techniques
+                    </h3>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-user-tie text-accent mt-1"></i>
+                            <div>
+                                <p class="text-sm text-gray-400">Supervisor</p>
+                                <p class="text-white font-medium">Dr. Mohammad Rifat Ahmmad Rashid</p>
+                                <p class="text-xs text-gray-500">Associate Professor, Dept. of CSE, EWU</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-university text-accent mt-1"></i>
+                            <div>
+                                <p class="text-sm text-gray-400">Institution</p>
+                                <p class="text-white">East West University</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-400 text-sm leading-relaxed border-t border-slate-700 pt-4">
+                        Proposed an automated system for Diabetic Retinopathy detection using deep learning models enhanced with attention mechanisms to improve feature extraction. Integrated Explainable AI (XAI) techniques like Grad-CAM to interpret model decisions and enhance clinical trustworthiness.
+                    </p>
+                </div>
+
+                <!-- BSc Capstone -->
+                <div class="glass-card p-8 rounded-2xl border border-slate-700 hover:border-pink-500 transition-all duration-300 group">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="px-3 py-1 bg-pink-500/20 text-pink-400 text-sm font-semibold rounded-full border border-pink-500/30">B.Sc. Capstone Project</span>
+                        <i class="fas fa-language text-3xl text-slate-600 group-hover:text-pink-400 transition-colors"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-white mb-4 leading-tight">
+                        Developing a Bangla Handwritten Text Recognition Framework using Deep Learning
+                    </h3>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-user-tie text-pink-400 mt-1"></i>
+                            <div>
+                                <p class="text-sm text-gray-400">Supervisor</p>
+                                <p class="text-white font-medium">Dr. Mohammad Rezwanul Huq</p>
+                                <p class="text-xs text-gray-500">Associate Professor, Dept. of CSE, EWU</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-university text-pink-400 mt-1"></i>
+                            <div>
+                                <p class="text-sm text-gray-400">Institution</p>
+                                <p class="text-white">East West University</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-400 text-sm leading-relaxed border-t border-slate-700 pt-4">
+                        Developed a machine learning-based innovative software designed to convert handwritten Bangla text into digital format. Implemented deep neural networks to improve recognition accuracy for handwritten Bangla characters, optimized for real-world applications including document digitization.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Affiliations & Awards Section -->
+    <section id="affiliations" class="py-24 bg-slate-900/30 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Academic Affiliations -->
+                <div>
+                    <h2 class="text-3xl font-display font-bold text-white mb-8 border-l-4 border-green-500 pl-4">Academic Affiliations</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="glass-card p-6 rounded-xl border-l-4 border-green-500 hover:transform hover:-translate-y-1 transition-all duration-300">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-green-500/20 p-3 rounded-lg text-green-400">
+                                    <i class="fas fa-users text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-white">Vice-President</h3>
+                                    <p class="text-green-400 font-medium">EWU Computer Programming Club (EWUCoPC)</p>
+                                    <p class="text-sm text-gray-400 mt-2">Leading programming initiatives, organizing coding competitions, and mentoring students in competitive programming and software development.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-xl border-l-4 border-orange-500 hover:transform hover:-translate-y-1 transition-all duration-300">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-orange-500/20 p-3 rounded-lg text-orange-400">
+                                    <i class="fas fa-running text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-white">SGM (Senior General Member)</h3>
+                                    <p class="text-orange-400 font-medium">East West University Sports Club</p>
+                                    <p class="text-sm text-gray-400 mt-2">Active member contributing to sports activities and event organization at the university level.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Awards & Honors -->
+                <div>
+                    <h2 class="text-3xl font-display font-bold text-white mb-8 border-l-4 border-yellow-500 pl-4">Awards & Honors</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="glass-card p-6 rounded-xl border-l-4 border-yellow-500 hover:transform hover:-translate-y-1 transition-all duration-300">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-yellow-500/20 p-3 rounded-lg text-yellow-400">
+                                    <i class="fas fa-trophy text-xl"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h3 class="text-lg font-bold text-white">EWU Medha Lalon Scholarship</h3>
+                                            <p class="text-yellow-400 font-medium text-sm">Undergraduate Studies</p>
+                                        </div>
+                                        <span class="px-3 py-1 bg-yellow-500/10 text-yellow-400 text-xs rounded-full border border-yellow-500/30">CGPA 3.50+</span>
+                                    </div>
+                                    <p class="text-sm text-gray-400 mt-3">Consistently featured for maintaining an outstanding CGPA above 3.50 in undergraduate studies. Recognized for academic excellence and dedication.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-xl border-l-4 border-purple-500 hover:transform hover:-translate-y-1 transition-all duration-300">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-purple-500/20 p-3 rounded-lg text-purple-400">
+                                    <i class="fas fa-medal text-xl"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h3 class="text-lg font-bold text-white">Dean's List Award</h3>
+                                            <p class="text-purple-400 font-medium text-sm">Master's Studies</p>
+                                        </div>
+                                        <span class="px-3 py-1 bg-purple-500/10 text-purple-400 text-xs rounded-full border border-purple-500/30">CGPA 3.75+</span>
+                                    </div>
+                                    <p class="text-sm text-gray-400 mt-3">Consistently featured for maintaining an outstanding CGPA above 3.75 in Master's studies. Honored for exceptional academic performance in graduate research.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section - Only 5 -->
+    <section id="publications" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-display font-bold text-white">Selected Publications</h2>
+                    <p class="text-gray-400 mt-2">Peer-reviewed research contributions</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Publication 1 -->
+                <div class="glass-card p-6 rounded-xl hover:bg-slate-800 transition-all duration-300 group border border-slate-700 hover:border-accent">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-blue-900/50 text-blue-300 text-xs px-2 py-1 rounded border border-blue-800">Medical Imaging</span>
+                        <i class="fas fa-file-alt text-gray-600 group-hover:text-accent transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent transition-colors line-clamp-3">
+                        Enhancing Skin Cancer Detection Through Automated Classification Using Convolutional Neural Networks
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-2">ICO 2023, Springer</p>
+                    <p class="text-xs text-gray-400">Lecture Notes in Networks and Systems, vol. 1167</p>
+                </div>
+                <div class="glass-card p-6 rounded-xl hover:bg-slate-800 transition-all duration-300 group border border-slate-700 hover:border-accent">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-yellow-900/50 text-yellow-300 text-xs px-2 py-1 rounded border border-yellow-800">Medical Imaging</span>
+                        <i class="fas fa-file-alt text-gray-600 group-hover:text-accent transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent transition-colors line-clamp-3">
+                        Enhancing skin cancer detection through automated classification using convolutional neural networks
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-2">ICO 2023, Springer</p>
+                    <p class="text-xs text-gray-400">Lecture Notes in Networks and Systems, vol. 1167</p>
+                </div>
+
+                <!-- Publication 2 -->
+                <div class="glass-card p-6 rounded-xl hover:bg-slate-800 transition-all duration-300 group border border-slate-700 hover:border-accent">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-green-900/50 text-green-300 text-xs px-2 py-1 rounded border border-green-800">NLP / OCR</span>
+                        <i class="fas fa-file-alt text-gray-600 group-hover:text-accent transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent transition-colors line-clamp-3">
+                        Deciphering Handwritten Text: A Convolutional Neural Network Framework for Handwritten Character Recognition
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-2">ICO 2023, Springer</p>
+                    <p class="text-xs text-gray-400">Lecture Notes in Networks and Systems, vol. 729</p>
+                </div>
+
+                <!-- Publication 3 -->
+                <div class="glass-card p-6 rounded-xl hover:bg-slate-800 transition-all duration-300 group border border-slate-700 hover:border-accent">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-purple-900/50 text-purple-300 text-xs px-2 py-1 rounded border border-purple-800">Energy Systems</span>
+                        <i class="fas fa-file-alt text-gray-600 group-hover:text-accent transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent transition-colors line-clamp-3">
+                        Reducing Energy Usage and Cost for Environmentally Conscious Cooling Infrastructure
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-2">ICO 2023, Springer</p>
+                    <p class="text-xs text-gray-400">Lecture Notes in Networks and Systems, vol. 852</p>
+                </div>
+
+                <!-- Publication 4 -->
+                <div class="glass-card p-6 rounded-xl hover:bg-slate-800 transition-all duration-300 group border border-slate-700 hover:border-accent">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-red-900/50 text-red-300 text-xs px-2 py-1 rounded border border-red-800">Cyber Security</span>
+                        <i class="fas fa-file-alt text-gray-600 group-hover:text-accent transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent transition-colors line-clamp-3">
+                        Ransomware Attacks and Detection Mechanisms: A Systematic Literature Review
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-2">CIIR 2023, Springer</p>
+                    <p class="text-xs text-gray-400">Lecture Notes in Networks and Systems, vol. 1139</p>
+                </div>
+
+                <!-- Publication 5 -->
+                <div class="glass-card p-6 rounded-xl hover:bg-slate-800 transition-all duration-300 group border border-slate-700 hover:border-accent">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-yellow-900/50 text-yellow-300 text-xs px-2 py-1 rounded border border-yellow-800">Agriculture</span>
+                        <i class="fas fa-file-alt text-gray-600 group-hover:text-accent transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent transition-colors line-clamp-3">
+                        Detecting Crop Pests and Diseases Through Deep Learning Techniques for Improved Yields
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-2">CIIR 2023, Springer</p>
+                    <p class="text-xs text-gray-400">Lecture Notes in Networks and Systems, vol. 1025</p>
+                </div>
+                
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="https://scholar.google.com/citations?hl=en&user=YOUR_SCHOLAR_ID" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white rounded-lg font-semibold transition-all transform hover:scale-105">
+                    <i class="fas fa-graduation-cap"></i>
+                    See More on Google Scholar
+                    <i class="fas fa-external-link-alt text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-2xl p-8 md:p-12 border border-slate-700 shadow-2xl text-center">
+                <div class="mb-10">
+                    <h2 class="text-3xl font-display font-bold text-white mb-4">Get In Touch</h2>
+                    <p class="text-gray-400">Interested in collaborating or have a research inquiry? I'd love to hear from you.</p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="flex items-center justify-center gap-4 text-gray-300">
+                        <i class="fas fa-envelope text-accent text-xl"></i>
+                        <span>mdjakirhossen13@gmail.com</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-center gap-4 text-gray-300">
+                        <i class="fas fa-phone text-accent text-xl"></i>
+                        <span>(+880) 1742-750366</span>
+                    </div>
+
+                    <div class="pt-6">
+                        <a href="mailto:mdjakirhossen13@gmail.com?subject=Research Collaboration Inquiry" class="inline-flex items-center gap-3 px-10 py-4 bg-accent hover:bg-accentHover text-white rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/30">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex justify-center gap-6 mt-10 pt-6 border-t border-slate-700">
+                    <a href="https://github.com/jakirniloy" target="_blank" class="text-gray-400 hover:text-white transition-colors text-2xl"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/jakirniloy" target="_blank" class="text-gray-400 hover:text-white transition-colors text-2xl"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://scholar.google.com/citations?hl=en&user=YOUR_SCHOLAR_ID" target="_blank" class="text-gray-400 hover:text-white transition-colors text-2xl"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://jakirniloy.github.io/" target="_blank" class="text-gray-400 hover:text-white transition-colors text-2xl"><i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="text-gray-500 text-sm mb-4 md:mb-0">
+                &copy; 2024 MD Jakir Hossain. All rights reserved.
+            </div>
+            <div class="flex space-x-6">
+                <a href="https://github.com/jakirniloy" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-github text-xl"></i></a>
+                <a href="https://linkedin.com/in/jakirniloy" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="https://jakirniloy.github.io/" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fas fa-globe text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Typewriter Effect
-        const words = ["PhD Aspirant in AI & Computer Vision", "Vision Transformers", "Medical Imaging & Trustworthy AI Research"];
-        let wordIndex = 0, charIndex = 0, isDeleting = false;
-        const typewriterEl = document.getElementById('typewriter');
+        gsap.registerPlugin(ScrollTrigger);
 
-        function type() {
-            const currentWord = words[wordIndex];
-            typewriterEl.textContent = isDeleting ? currentWord.substring(0, charIndex - 1) : currentWord.substring(0, charIndex + 1);
-            charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
+        gsap.from("#home h1", {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: "power3.out",
+            delay: 0.2
+        });
+        
+        gsap.from("#home p", {
+            duration: 1,
+            y: 30,
+            opacity: 0,
+            ease: "power3.out",
+            delay: 0.4
+        });
 
-            if (!isDeleting && charIndex === currentWord.length) { isDeleting = true; setTimeout(type, 2000); }
-            else if (isDeleting && charIndex === 0) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; setTimeout(type, 500); }
-            else { setTimeout(type, isDeleting ? 50 : 150); }
-        }
+        // Animate metrics cards
+        gsap.from(".metric-card", {
+            duration: 0.8,
+            y: 30,
+            opacity: 0,
+            stagger: 0.15,
+            ease: "back.out(1.7)",
+            delay: 0.6
+        });
 
-        // AOS Logic
-        function reveal() {
-            const reveals = document.querySelectorAll('[data-aos]');
-            reveals.forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("aos-animate");
+        const sections = document.querySelectorAll("section");
+        sections.forEach(section => {
+            gsap.from(section.children, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power3.out"
             });
-        }
+        });
 
-        window.addEventListener("scroll", reveal);
-        document.addEventListener("DOMContentLoaded", () => { type(); reveal(); });
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+                nav.classList.replace('bg-opacity-70', 'bg-opacity-95');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
     </script>
-<script type="module" src="/index.tsx"></script>
 </body>
 </html>
-
