@@ -145,13 +145,13 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+   <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         <div class="blob bg-blue-600 w-96 h-96 rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
         <div class="blob bg-cyan-500 w-80 h-80 rounded-full bottom-0 right-0 translate-x-1/3 translate-y-1/3 animation-delay-2000"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8 animate-fade-in-up">
+            <div class="space-y-8 animate-fade-in-up text-center md:text-left">
                 <div class="inline-block px-4 py-1 rounded-full bg-slate-800 border border-slate-700 text-accent text-sm font-semibold tracking-wide mb-4">
                     <i class="fas fa-code mr-2"></i> AI Researcher & Engineer
                 </div>
@@ -159,11 +159,11 @@
                     MD Jakir <br>
                     <span class="gradient-text">Hossain</span>
                 </h1>
-                <p class="text-xl text-gray-400 max-w-lg leading-relaxed">
+                <p class="text-xl text-gray-400 max-w-lg leading-relaxed mx-auto md:mx-0">
                     Master's in Computer Science specializing in Deep Learning, Medical Image Analysis, and NLP. Building intelligent systems for real-world impact.
                 </p>
                 
-                <div class="flex flex-wrap gap-4 mt-4">
+                <div class="flex flex-wrap gap-4 mt-4 justify-center md:justify-start">
                     <a href="https://www.researchgate.net/profile/Md-Hossain-917/research" class="px-8 py-4 bg-accent hover:bg-accentHover text-white rounded-lg font-semibold transition-all transform hover:-translate-y-1 shadow-lg shadow-cyan-500/30">
                         View Research
                     </a>
@@ -172,19 +172,20 @@
                     </a>
                 </div>
                 
-                <div class="flex gap-6 pt-4 text-gray-400">
+                <div class="flex gap-6 pt-4 text-gray-400 justify-center md:justify-start">
                     <a href="https://github.com/jakirniloy" target="_blank" class="hover:text-white transition-colors text-2xl"><i class="fab fa-github"></i></a>
                     <a href="https://linkedin.com/in/jakirniloy" target="_blank" class="hover:text-white transition-colors text-2xl"><i class="fab fa-linkedin"></i></a>
                     <a href="https://scholar.google.com/citations?user=5zQswZIAAAAJ&hl=en" target="_blank" class="hover:text-white transition-colors text-2xl"><i class="fas fa-graduation-cap"></i></a>
                 </div>
             </div>
             
-            <div class="relative hidden md:block">
-                <div class="relative w-full aspect-square max-w-md mx-auto">
+            <!-- ONLY CHANGE: removed "hidden md:block", added "order-first md:order-last" so image shows on mobile above text -->
+            <div class="relative order-first md:order-last">
+                <div class="relative w-72 h-72 mx-auto md:w-full md:aspect-square md:max-w-md md:h-auto">
                     <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-full opacity-20 blur-2xl animate-pulse"></div>
                     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpaa-BSY544HKUk6TcE4Qfux77FO_Irzk2so-uBfWkKoXYa3TlVKbrFbWpwGdlvbSMJHSMMSgPL4mCN8jx5hyphenhyphenCK06kVrGz5VZubwAd_945ztnDHrtWpUotTj5QqGlU_UDUmi7bO2kRFW85QQsKs-uw2wFlzfOKgv47PQE7LhrSXGryMTAo-RbyPaKvRKI/s320/WhatsApp%20Image%202026-02-25%20at%204.05.30%20PM.jpeg"  alt="Profile" class="relative rounded-2xl shadow-2xl border-4 border-slate-800 object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500">
                     
-                    <div class="absolute -bottom-6 -left-6 glass-card p-4 rounded-xl shadow-xl animate-bounce" style="animation-duration: 3s;">
+                    <div class="absolute -bottom-6 -left-6 glass-card p-4 rounded-xl shadow-xl animate-bounce hidden md:flex" style="animation-duration: 3s;">
                         <div class="flex items-center gap-3">
                             <div class="bg-green-500/20 p-2 rounded-lg text-green-400">
                                 <i class="fas fa-check-circle"></i>
@@ -196,7 +197,7 @@
                         </div>
                     </div>
 
-                    <div class="absolute -top-6 -right-6 glass-card p-4 rounded-xl shadow-xl animate-bounce" style="animation-duration: 4s;">
+                    <div class="absolute -top-6 -right-6 glass-card p-4 rounded-xl shadow-xl animate-bounce hidden md:flex" style="animation-duration: 4s;">
                         <div class="flex items-center gap-3">
                             <div class="bg-blue-500/20 p-2 rounded-lg text-blue-400">
                                 <i class="fas fa-award"></i>
@@ -210,8 +211,8 @@
                 </div>
 
                 <!-- Google Scholar Metrics - Under Picture -->
-                <div class="mt-8 flex justify-center gap-4">
-                    <a href="https://scholar.google.com/citations?user=5zQswZIAAAAJ&hl=en" target="_blank" class="metric-card px-6 py-4 rounded-xl flex items-center gap-3 group hover:scale-105 transition-transform">
+                <div class="mt-8 flex justify-center items-center gap-2 flex-wrap mx-auto">
+                    <a href="https://scholar.google.com/citations?user=5zQswZIAAAAJ&hl=en" target="_blank" class="metric-card px-4 py-3 rounded-xl flex items-center gap-3 group hover:scale-105 transition-transform">
                         <div class="bg-accent/20 p-2 rounded-lg text-accent group-hover:bg-accent group-hover:text-white transition-all">
                             <i class="fas fa-graduation-cap text-xl"></i>
                         </div>
@@ -229,7 +230,7 @@
                         </div>
                     </a>
                     
-                    <div class="metric-card px-6 py-4 rounded-xl flex items-center gap-3">
+                    <div class="metric-card px-4 py-3 rounded-xl flex items-center gap-3">
                         <div class="bg-accent/20 p-2 rounded-lg text-accent">
                             <i class="fas fa-chart-line text-xl"></i>
                         </div>
@@ -239,7 +240,7 @@
                         </div>
                     </div>
                     
-                    <div class="metric-card px-6 py-4 rounded-xl flex items-center gap-3">
+                    <div class="metric-card px-4 py-3 rounded-xl flex items-center gap-3">
                         <div class="bg-accent/20 p-2 rounded-lg text-accent">
                             <i class="fas fa-file-alt text-xl"></i>
                         </div>
@@ -252,7 +253,6 @@
             </div>
         </div>
     </section>
-
     <!-- About & Skills Section -->
     <section id="about" class="py-24 bg-slate-900/50 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
